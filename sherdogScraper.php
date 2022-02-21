@@ -8,8 +8,7 @@ $crawler = $client->request('GET', 'https://www.sherdog.com/events/UFC-271-Adesa
 // Get the latest post in this category and display the titles
 for ($i = 2; $i < 11; ++$i) {
 $crawler->filter('tr:nth-of-type('.$i.') .left span[itemprop="name"]')->each(function ($node) {
-//    $node->text();
-$logz = var_export($node->text());
+//    print $node->text();
 $inp = file_get_contents('winners.json');
 $tempArray = json_decode($inp);
 array_push($tempArray, $node->text());
